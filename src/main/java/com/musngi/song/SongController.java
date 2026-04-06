@@ -14,6 +14,13 @@ public class SongController {
     @Autowired
     private SongRepository songRepository;
 
+    // HEALTH CHECK / ROOT ENDPOINT
+    // This allows Render to see the app is "Live"
+    @GetMapping("/")
+    public String healthCheck() {
+        return "Song API is running!";
+    }
+
     // GET: Retrieve all songs
     @GetMapping
     public List<Song> getAllSongs() {
